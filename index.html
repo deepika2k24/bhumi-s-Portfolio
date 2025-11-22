@@ -47,32 +47,32 @@
       letter-spacing: 0.5px;
     }
 
-    nav a {
-      margin-left: 30px;
-      text-decoration: none;
-      color: var(--dark);
-      transition: var(--transition);
-      font-weight: 500;
-      font-size: 0.98rem;
-      padding-bottom: 3px;
-      border-bottom: 2px solid transparent;
+    .nav-center {
+      display: flex;
+      gap: 28px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    nav a:hover {
+    .nav-center a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding-bottom: 3px;
+      border-bottom: 2px solid transparent;
+      transition: var(--transition);
+    }
+
+    .nav-center a:hover {
       color: var(--primary);
       border-bottom: 2px solid var(--primary);
     }
 
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: var(--dark);
-      transition: var(--transition);
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: var(--primary);
+    .theme-toggle {
+      font-size: 1.2rem;
+      cursor: pointer;
+      user-select: none;
     }
 
     /* MAIN HERO SECTION */
@@ -122,394 +122,335 @@
     .btn:hover {
       background: var(--primary-dark);
     }
-      .nav-buttons {
+
+    .image-box {
+      width: 100%;
+      height: 420px;
       display: flex;
-      gap: 12px;
-      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      border-radius: 30px;
     }
 
-    .nav-btn {
-      padding: 6px 12px;
-      background: transparent;
-      border: 2px solid var(--primary);
-      border-radius: 6px;
+    .image-box img {
+      width: 75%;
+      height: 95%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
+    }
+
+    .skill-card {
+      background: white;
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+    }
+
+    .skill-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+    }
+
+    /* PROJECTS GRID STYLES - 3-3-1 Layout */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 24px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-title {
+      margin: 0 0 12px;
+      color: var(--dark);
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .project-description {
+      color: var(--gray);
+      line-height: 1.5;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .github-link {
       color: var(--primary);
       font-weight: 600;
-      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       text-decoration: none;
       transition: var(--transition);
-      white-space: nowrap;
+      padding: 10px 18px;
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      width: fit-content;
     }
 
-    .nav-btn:hover {
+    .github-link:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Center the last project card in 3-3-1 layout */
+    .projects-grid .project-card:nth-child(7) {
+      grid-column: 2;
+    }
+
+    /* CERTIFICATES SECTION - Horizontal Scrolling */
+    .certificates-section {
+      padding: 60px 10%;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    .certificates-scroll-container {
+      position: relative;
+      margin-top: 40px;
+    }
+
+    .certificates-track {
+      display: flex;
+      gap: 25px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 20px 10px 30px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      cursor: grab;
+    }
+
+    .certificates-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Show scroll indicator on mobile */
+    .certificates-track::after {
+      content: '';
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+      opacity: 0.3;
+      display: none;
+    }
+
+    .certificate-card {
+      flex: 0 0 auto;
+      width: 300px;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: var(--transition);
+    }
+
+    .certificate-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .certificate-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .certificate-content {
+      padding: 20px;
+    }
+
+    .certificate-title {
+      margin: 0 0 8px;
+      color: var(--dark);
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .certificate-issuer {
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    .certificate-date {
+      color: var(--gray);
+      font-size: 0.85rem;
+    }
+
+    /* Scroll buttons */
+    .scroll-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: white;
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      z-index: 2;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .scroll-btn:hover {
       background: var(--primary);
       color: white;
     }
 
-      .nav-center {
-      display: flex;
-      gap: 28px;
-      margin-left: auto;
-      margin-right: auto;
+    .scroll-btn.left {
+      left: -25px;
     }
 
-    .nav-center a {
-      text-decoration: none;
-      color: var(--dark);
-      font-weight: 500;
-      font-size: 0.95rem;
-      padding-bottom: 3px;
-      border-bottom: 2px solid transparent;
-      transition: var(--transition);
+    .scroll-btn.right {
+      right: -25px;
     }
 
-    .nav-center a:hover {
-      color: var(--primary);
-      border-bottom: 2px solid var(--primary);
-    }
-
-    .theme-toggle {
+    .scroll-btn i {
       font-size: 1.2rem;
-      cursor: pointer;
-      user-select: none;
     }
-    .image-box {
-  width: 100%;
-  height: 420px; /* or whatever height you're using */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  border-radius: 30px;
-}
 
-.image-box img {
-  width: 75%;
-  height: 95%;
-  object-fit: cover;
-  object-position: center; /* THIS centers the girl */
-}
-
-/* Skills Grid */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 35px;
-}
-
-.skill-card {
-  background: white;
-  padding: 28px;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-  transition: var(--transition);
-  text-align: center;
-}
-
-.skill-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.1);
-}
-
-.skill-icon {
-  font-size: 2.5rem;
-  color: var(--primary);
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
-}
-
-/* PROJECTS GRID STYLES - 3-3-1 Layout */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.project-card {
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  transition: var(--transition);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-}
-
-.project-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.project-content {
-  padding: 24px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.project-title {
-  margin: 0 0 12px;
-  color: var(--dark);
-  font-size: 1.3rem;
-  font-weight: 600;
-}
-
-.project-description {
-  color: var(--gray);
-  line-height: 1.5;
-  margin-bottom: 20px;
-  flex-grow: 1;
-}
-
-.github-link {
-  color: var(--primary);
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  transition: var(--transition);
-  padding: 10px 18px;
-  border: 2px solid var(--primary);
-  border-radius: 8px;
-  width: fit-content;
-}
-
-.github-link:hover {
-  background: var(--primary);
-  color: white;
-  transform: translateY(-2px);
-}
-
-/* Center the last project card in 3-3-1 layout */
-.projects-grid .project-card:nth-child(7) {
-  grid-column: 2;
-}
-
-/* CERTIFICATES SECTION - Horizontal Scrolling */
-.certificates-section {
-  padding: 80px 10%;
-  max-width: 1300px;
-  margin: auto;
-}
-
-.certificates-scroll-container {
-  position: relative;
-  margin-top: 40px;
-}
-
-.certificates-track {
-  display: flex;
-  gap: 25px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 20px 10px;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-}
-
-.certificates-track::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
-}
-
-.certificate-card {
-  flex: 0 0 auto;
-  width: 300px;
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: var(--transition);
-}
-
-.certificate-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-.certificate-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.certificate-content {
-  padding: 20px;
-}
-
-.certificate-title {
-  margin: 0 0 8px;
-  color: var(--dark);
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.certificate-issuer {
-  color: var(--primary);
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-
-.certificate-date {
-  color: var(--gray);
-  font-size: 0.85rem;
-}
-
-/* Scroll buttons */
-.scroll-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  background: white;
-  border: 2px solid var(--primary);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: var(--transition);
-  z-index: 2;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.scroll-btn:hover {
-  background: var(--primary);
-  color: white;
-}
-
-.scroll-btn.left {
-  left: -25px;
-}
-
-.scroll-btn.right {
-  right: -25px;
-}
-
-.scroll-btn i {
-  font-size: 1.2rem;
-}
-
-/* Responsive design */
-@media (max-width: 1024px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .projects-grid .project-card:nth-child(7) {
-    grid-column: 1 / -1;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  .scroll-btn {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-  .projects-grid .project-card:nth-child(7) {
-    grid-column: 1;
-    max-width: 100%;
-  }
-  
-  .certificate-card {
-    width: 280px;
-  }
-}
-  /* CONTACT SECTION - Fixed Alignment */
+    /* CONTACT SECTION */
     .contact-section {
-      padding: 80px 10%;
+      padding: 60px 10%;
       max-width: 1300px;
       margin: auto;
       background: white;
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      margin-top: 60px;
-      margin-bottom: 60px;
+      margin-top: 30px;
+      margin-bottom: 40px;
     }
 
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 30px;
       margin-top: 40px;
     }
 
     .contact-card {
       background: var(--light);
-      padding: 30px;
-      border-radius: 12px;
-      border: 1px solid #e2e8f0;
+      padding: 40px 30px;
+      border-radius: 16px;
+      border: 2px solid #e2e8f0;
       transition: var(--transition);
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
+      min-height: 280px;
     }
 
     .contact-card:hover {
       border-color: var(--primary);
-      transform: translateY(-3px);
-      box-shadow: 0 5px 20px rgba(37, 99, 235, 0.1);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
     }
 
     .contact-icon {
-      font-size: 2rem;
+      font-size: 2.2rem;
       color: var(--primary);
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 60px;
-      height: 60px;
+      width: 70px;
+      height: 70px;
       background: rgba(37, 99, 235, 0.1);
       border-radius: 50%;
     }
 
     .contact-title {
-      font-size: 1.1rem;
-      font-weight: 600;
+      font-size: 1.3rem;
+      font-weight: 700;
       color: var(--dark);
-      margin-bottom: 8px;
+      margin-bottom: 15px;
     }
 
     .contact-info {
       color: var(--gray);
-      font-size: 0.95rem;
-      margin-bottom: 25px;
+      font-size: 1rem;
+      margin-bottom: 30px;
       line-height: 1.5;
+      font-weight: 500;
     }
 
     .contact-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 10px 24px;
+      gap: 10px;
+      padding: 12px 28px;
       background: var(--primary);
       color: white;
       text-decoration: none;
-      border-radius: 6px;
-      font-weight: 500;
-      font-size: 0.9rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
       transition: var(--transition);
       border: 2px solid var(--primary);
+      min-width: 140px;
+      justify-content: center;
     }
 
     .contact-btn:hover {
@@ -517,77 +458,238 @@
       color: var(--primary);
       transform: translateY(-2px);
     }
+    footer a:hover {
+        color: var(--primary) !important;
+        transform: translateY(-2px);
+    }
 
-    /* Responsive design for contact section */
+    /* Responsive Footer */
     @media (max-width: 768px) {
+        footer {
+            padding: 40px 5% 20px !important;
+        }
+        
+        .footer-grid {
+            grid-template-columns: 1fr !important;
+            gap: 30px !important;
+        }
+        
+        .footer-bottom {
+            flex-direction: column !important;
+            text-align: center !important;
+            gap: 15px !important;
+        }
+    }
+
+    @media (max-width: 480px) {
+        footer {
+            padding: 30px 5% 15px !important;
+        }
+        
+        .footer-skills {
+            justify-content: center !important;
+        }
+    }
+    /* ========== RESPONSIVE DESIGN ========== */
+    
+    /* Tablet */
+    @media (max-width: 1024px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+      }
+      
+      .hero img {
+        order: -1;
+        width: 280px;
+        height: 280px;
+      }
+      
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .projects-grid .project-card:nth-child(7) {
+        grid-column: 1 / -1;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      
+      .scroll-btn {
+        display: none;
+      }
+      
+      .certificates-track::after {
+        display: block;
+      }
+      
+      .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      /* Navigation */
+      nav {
+        padding: 12px 20px;
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .nav-center {
+        display: none; /* Hide navigation links on mobile */
+      }
+      
+      /* Hero Section */
+      .hero {
+        padding: 40px 5%;
+        gap: 30px;
+      }
+      
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+      
+      .hero img {
+        width: 250px;
+        height: 250px;
+      }
+      
+      /* Projects */
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      
+      .projects-grid .project-card:nth-child(7) {
+        grid-column: 1;
+        max-width: 100%;
+      }
+      
+      /* Certificates */
+      .certificates-section {
+        padding: 60px 5%;
+      }
+      
+      .certificate-card {
+        width: 280px;
+      }
+      
+      /* Contact */
+      .contact-section {
+        padding: 60px 5%;
+        margin: 40px auto;
+      }
+      
       .contact-grid {
         grid-template-columns: 1fr;
         gap: 20px;
       }
       
       .contact-card {
-        padding: 25px;
+        padding: 30px 25px;
+        min-height: 250px;
       }
     }
-  </style>
+
+    /* Small Mobile */
+    @media (max-width: 480px) {
+      .hero-text h1 {
+        font-size: 1.8rem;
+      }
+      
+      .hero img {
+        width: 220px;
+        height: 220px;
+      }
+      
+      .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+      
+      .certificate-card {
+        width: 260px;
+      }
+    }
+    /* Fix for arrow in mobile view */
+@media (max-width: 768px) {
+    .arrow-container {
+        position: absolute;
+        top: -40px;
+        right: 20px;
+        animation: bounce 2s infinite;
+    }
+    
+    .arrow {
+        width: 25px;
+        height: 25px;
+        border-right: 3px solid #2575fc;
+        border-bottom: 3px solid #2575fc;
+        transform: rotate(45deg);
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .arrow-container {
+        top: -35px;
+        right: 15px;
+    }
+    
+    .arrow {
+        width: 20px;
+        height: 20px;
+    }
+}
   </style>
 </head>
 <body>
 
-  <!-- Navbar minimal clean -->
+  <!-- Navbar - Hidden on mobile -->
   <nav>
     <div class="logo"><strong>Bhumika</strong></div>
-
     <div class="nav-center">
-      <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#certificates">Certificates</a>
-      <a href="#achievements">Achievements</a>
       <a href="#contact">Contact</a>
     </div>
-
     <div class="theme-toggle"></div>
   </nav>
 
-  <!-- HERO SECTION with her image + description -->
+  <!-- HERO SECTION - Image moves down on mobile -->
   <section class="hero" aria-labelledby="home-title">
-
     <div class="hero-text" role="region" aria-label="Introduction">
       <h1 id="home-title">I'm Bhumika KR.</h1>
       <p>
         Electronics & Communication Engineering graduate transitioning into IT, blending hardware know-how with software finesse. Skilled in frontend development, building intuitive user interfaces, designing practical IoT systems, creating actionable Power BI dashboards, and implementing cloud-powered workflows. Passionate about lightweight machine learning for edge devices and crafting seamless, data-driven experiences across platforms.
       </p>
-
-      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-      <a class="btn" href="Resume.pdf" download style="background:transparent;border:2px solid var(--primary);color:var(--primary);">Download Resume</a>
-      <a class="btn" href="mailto:bhumikakr3030@gmail.com" style="background:var(--secondary);border:none;color:white;">Get in Touch</a>
-      
-</div>
+      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:center;">
+        <a class="btn" href="final_resume.pdf" download style="background:transparent;border:2px solid var(--primary);color:var(--primary);">Download Resume</a>
+        <a class="btn" href="mailto:bhumikakr3030@gmail.com" style="background:var(--secondary);border:none;color:white;">Get in Touch</a>
+      </div>
     </div>
-
-    <!-- Main image: replace 'bhumika.jpg' with the real photo file -->
-     <div class="image-box">
-    <img src="bhumika.png" alt="Portrait of Bhumika KR" />
+    <div class="image-box">
+      <img src="bhumika.png" alt="Portrait of Bhumika KR" />
     </div>
   </section>
-<!-- SKILLS / WHAT I DO SECTION -->
-<section id="skills" style="padding:60px 10%;max-width:1300px;margin:auto;">
-<h2 style="font-size:2rem;font-weight:700;margin-bottom:40px;color:var(--dark);">What I Do</h2>
 
-
-<div class="skills-grid">
-
-<!-- Skill Card 1 -->
-<div class="skill-card">
-<div class="skill-icon">
-  <i class="fas fa-microchip"></i>
-</div>
-<h3 style="font-size:1.25rem;margin-bottom:10px;color:var(--dark);">IoT Systems</h3>
-<p style="color:var(--gray);line-height:1.5;">Building sensor‑based embedded projects, connectivity workflows, and hardware‑software integrations.</p>
-</div>
-
-<!-- Skill Card 2 -->
+  <!-- SKILLS SECTION -->
+  <section id="skills" style="padding:60px 10%;max-width:1300px;margin:auto;">
+    <h2 style="font-size:2rem;font-weight:700;margin-bottom:40px;color:var(--dark);">What I Do</h2>
+    <div class="skills-grid">
+      <!-- Your skill cards remain the same -->
+      <div class="skill-card">
+        <div class="skill-icon"><i class="fas fa-microchip"></i></div>
+        <h3 style="font-size:1.25rem;margin-bottom:10px;color:var(--dark);">IoT Systems</h3>
+        <p style="color:var(--gray);line-height:1.5;">Building sensor‑based embedded projects, connectivity workflows, and hardware‑software integrations.</p>
+      </div>
+      <!-- Other skill cards... -->
+       <!-- Skill Card 2 -->
 <div class="skill-card">
 <div class="skill-icon">
   <i class="fas fa-chart-bar"></i>
@@ -633,17 +735,14 @@
 </div>
 </div>
 </section>
+    
 
-<!-- PROJECTS SECTION (3-3-1 Grid Layout) -->
-<section id="projects" style="padding:60px 10%;max-width:1300px;margin:auto;">
-  <h2 style="font-size:2rem;font-weight:700;margin-bottom:35px;color:var(--dark);">
-    Featured Projects
-  </h2>
-
-  <div class="projects-grid">
-
-    <!-- ROW 1 - 3 Projects -->
-    <!-- PROJECT CARD 1 -->
+  <!-- PROJECTS SECTION -->
+  <section id="projects" style="padding:60px 10%;max-width:1300px;margin:auto;">
+    <h2 style="font-size:2rem;font-weight:700;margin-bottom:35px;color:var(--dark);">Featured Projects</h2>
+    <div class="projects-grid">
+      <!-- Your project cards remain the same -->
+       <!-- PROJECT CARD 1 -->
     <div class="project-card">
       <img src="edunabha.png"
            alt="Digital Learning Platform"
@@ -764,22 +863,20 @@
       </div>
     </div>
 
-  </div>
-</section>
+    </div>
+  </section>
 
-<!-- CERTIFICATES SECTION - Horizontal Scrolling -->
-<section id="certificates" class="certificates-section">
-  <h2 style="font-size:2rem;font-weight:700;margin-bottom:35px;color:var(--dark);">
-    Certificates & Achievements
-  </h2>
+  <!-- CERTIFICATES SECTION - Mobile friendly scrolling -->
+  <section id="certificates" class="certificates-section">
+    <h2 style="font-size:2rem;font-weight:700;margin-bottom:35px;color:var(--dark);">Certificates & Achievements</h2>
+    <div class="certificates-scroll-container">
+      <button class="scroll-btn left" onclick="scrollCertificates(-300)">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <div class="certificates-track" id="certificatesTrack">
+        <!-- Your certificate cards remain the same -->
 
-  <div class="certificates-scroll-container">
-    <button class="scroll-btn left" onclick="scrollCertificates(-300)">
-      <i class="fas fa-chevron-left"></i>
-    </button>
-    
-    <div class="certificates-track" id="certificatesTrack">
-      <!-- Certificate 1 -->
+         <!-- Certificate 1 -->
       <div class="certificate-card">
         <img src="jirs.png" alt="IoT Certificate" class="certificate-image">
         <div class="certificate-content">
@@ -858,25 +955,18 @@
         </div>
       </div>
     </div>
+      <button class="scroll-btn right" onclick="scrollCertificates(300)">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </section>
 
-    <button class="scroll-btn right" onclick="scrollCertificates(300)">
-      <i class="fas fa-chevron-right"></i>
-    </button>
-  </div>
-</section>
-
-<!-- CONTACT SECTION - Fixed Alignment -->
+  <!-- CONTACT SECTION - Proper 3-column on desktop, 1-column on mobile -->
   <section id="contact" class="contact-section">
-    <h2 style="font-size:2rem;font-weight:700;margin-bottom:35px;color:var(--dark);text-align:center;">
-      Get In Touch
-    </h2>
-
+    <h2 style="font-size:2rem;font-weight:700;margin-bottom:35px;color:var(--dark);text-align:center;">Get In Touch</h2>
     <div class="contact-grid">
-      <!-- Email Card -->
       <div class="contact-card">
-        <div class="contact-icon">
-          <i class="fas fa-envelope"></i>
-        </div>
+        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
         <h3 class="contact-title">Email</h3>
         <p class="contact-info">bhumikakr3030@gmail.com</p>
         <a href="mailto:bhumikakr3030@gmail.com" class="contact-btn">
@@ -884,12 +974,8 @@
           <span>Send Email</span>
         </a>
       </div>
-
-      <!-- GitHub Card -->
       <div class="contact-card">
-        <div class="contact-icon">
-          <i class="fab fa-github"></i>
-        </div>
+        <div class="contact-icon"><i class="fab fa-github"></i></div>
         <h3 class="contact-title">GitHub</h3>
         <p class="contact-info">@Bhumikakr3030</p>
         <a href="https://github.com/Bhumikakr3030" target="_blank" class="contact-btn">
@@ -897,12 +983,8 @@
           <span>View Profile</span>
         </a>
       </div>
-
-      <!-- LinkedIn Card -->
       <div class="contact-card">
-        <div class="contact-icon">
-          <i class="fab fa-linkedin"></i>
-        </div>
+        <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
         <h3 class="contact-title">LinkedIn</h3>
         <p class="contact-info">Bhumika KR</p>
         <a href="https://www.linkedin.com/in/bhumika-kr-b0230725a/" target="_blank" class="contact-btn">
@@ -912,16 +994,129 @@
       </div>
     </div>
   </section>
+ <!-- FOOTER SECTION -->
+<footer style="background: var(--dark); color: white; padding: 60px 10% 30px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <!-- Main Footer Content -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 50px;">
+            <!-- Brand Column -->
+            <div>
+                <h3 style="color: white; font-size: 1.5rem; margin-bottom: 20px; font-weight: 600;">Bhumika KR</h3>
+                <p style="color: #cbd5e1; line-height: 1.6; margin-bottom: 25px;">
+                    Electronics & Communication Engineering graduate transitioning into IT, 
+                    blending hardware know-how with software finesse.
+                </p>
+                <div style="display: flex; gap: 15px;">
+                    <a href="#" style="color: white; font-size: 1.3rem; transition: var(--transition);">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" style="color: white; font-size: 1.3rem; transition: var(--transition);">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" style="color: white; font-size: 1.3rem; transition: var(--transition);">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" style="color: white; font-size: 1.3rem; transition: var(--transition);">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
 
-<script>
-  function scrollCertificates(scrollAmount) {
+            <!-- Quick Links -->
+            <div>
+                <h4 style="color: white; font-size: 1.2rem; margin-bottom: 20px; font-weight: 600;">Quick Links</h4>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <a href="#home" style="color: #cbd5e1; text-decoration: none; transition: var(--transition);">Home</a>
+                    <a href="#projects" style="color: #cbd5e1; text-decoration: none; transition: var(--transition);">Projects</a>
+                    <a href="#skills" style="color: #cbd5e1; text-decoration: none; transition: var(--transition);">Skills</a>
+                    <a href="#certificates" style="color: #cbd5e1; text-decoration: none; transition: var(--transition);">Certificates</a>
+                    <a href="#contact" style="color: #cbd5e1; text-decoration: none; transition: var(--transition);">Contact</a>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div>
+                <h4 style="color: white; font-size: 1.2rem; margin-bottom: 20px; font-weight: 600;">Expertise</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <span style="background: rgba(255,255,255,0.1); color: #cbd5e1; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem;">Frontend</span>
+                    <span style="background: rgba(255,255,255,0.1); color: #cbd5e1; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem;">IoT</span>
+                    <span style="background: rgba(255,255,255,0.1); color: #cbd5e1; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem;">Power BI</span>
+                    <span style="background: rgba(255,255,255,0.1); color: #cbd5e1; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem;">Cloud</span>
+                    <span style="background: rgba(255,255,255,0.1); color: #cbd5e1; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem;">ML</span>
+                    <span style="background: rgba(255,255,255,0.1); color: #cbd5e1; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem;">Data Visualization</span>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h4 style="color: white; font-size: 1.2rem; margin-bottom: 20px; font-weight: 600;">Get In Touch</h4>
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div style="display: flex; align-items: center; gap: 12px; color: #cbd5e1;">
+                        <i class="fas fa-envelope" style="color: var(--primary);"></i>
+                        <span>bhumikakr3030@gmail.com</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 12px; color: #cbd5e1;">
+                        <i class="fas fa-phone" style="color: var(--primary);"></i>
+                        <span>+91 90357 56998</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 12px; color: #cbd5e1;">
+                        <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i>
+                        <span>Bangalore, India</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div style="border-top: 1px solid #334155; padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <p style="color: #94a3b8; font-size: 0.9rem; margin: 0;">
+                © 2024 Bhumika KR. All rights reserved.
+            </p>
+            <div style="display: flex; gap: 20px;">
+                <a href="#" style="color: #94a3b8; text-decoration: none; font-size: 0.9rem; transition: var(--transition);">Privacy Policy</a>
+                <a href="#" style="color: #94a3b8; text-decoration: none; font-size: 0.9rem; transition: var(--transition);">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <script>
+    function scrollCertificates(scrollAmount) {
+      const track = document.getElementById('certificatesTrack');
+      track.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+
+    // Add touch scrolling for mobile
+    let isDown = false;
+    let startX;
+    let scrollLeft;
     const track = document.getElementById('certificatesTrack');
-    track.scrollBy({
-      left: scrollAmount,
-      behavior: 'smooth'
+
+    track.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
     });
-  }
-</script>
+
+    track.addEventListener('mouseleave', () => {
+      isDown = false;
+    });
+
+    track.addEventListener('mouseup', () => {
+      isDown = false;
+    });
+
+    track.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - track.offsetLeft;
+      const walk = (x - startX) * 2;
+      track.scrollLeft = scrollLeft - walk;
+    });
+  </script>
 
 </body>
 </html>
